@@ -1,0 +1,5 @@
+      [paste.app_factory]
+      main = sage:main
+      [console_scripts]
+      initialize_sage_db = sage.scripts.initializedb:main
+      
