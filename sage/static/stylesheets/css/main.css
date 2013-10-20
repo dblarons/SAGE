@@ -1,4 +1,13 @@
 body {
   font-family: 'Quicksand', sans-serif;
-  background-color: white;
+}
+body h1,
+body h2 {
+  font-family: 'Quicksand';
+  font-weight: 700;
+}
+body h3,
+body h4 {
+  font-family: 'Quicksand';
+  font-weight: 400;
 }

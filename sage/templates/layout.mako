@@ -9,9 +9,11 @@
   <link rel="shortcut icon" href="${request.static_url('sage:static/favicon.ico')}" />
   <link rel="stylesheet" href="${request.static_url('sage:static/vendor/bootstrap-3.0.0/css/bootstrap.min.css')}" type="text/css" media="screen" charset="utf-8" />
   <link rel="stylesheet" href="${request.static_url('sage:static/vendor/bootstrap-3.0.0/css/bootstrap-theme.min.css')}" type="text/css" media="screen" charset="utf-8" />
-  <link rel='stylesheet' href="http://fonts.googleapis.com/css?family=Quicksand:300,400" type='text/css'>
-  <link rel="stylesheet/less" href="${request.static_url('sage:static/stylesheets/less/styles.less')}" type="text/css">
-  <link rel="stylesheet/less" href="${request.static_url('sage:static/stylesheets/css/main.css')}" type="text/css">
+  <link rel="stylesheet" href="${request.static_url('sage:static/vendor/Quicksand/Quicksand-Light.ttf')}" type="text/css">
+  <link rel="stylesheet" href="${request.static_url('sage:static/vendor/Quicksand/Quicksand-Regular.ttf')}" type="text/css">
+  <link rel="stylesheet" href="${request.static_url('sage:static/vendor/Quicksand/Quicksand-Bold.ttf')}" type="text/css">
+  <link rel="stylesheet" href="${request.static_url('sage:static/stylesheets/css/main.css')}" type="text/css">
+
 
   <!--[if lte IE 6]>
   <link rel="stylesheet" href="${request.static_url('sage:static/ie6.css')}" type="text/css" media="screen" charset="utf-8" />
