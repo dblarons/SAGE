@@ -10,7 +10,7 @@ pyramid-debugtoolbar==1.0.8
 pyramid-mako==0.2
 pyramid-tm==0.7
 repoze.lru==0.6
--e git+git@github.com:midnightdev/SAGE.git@aee677d1e0c92d9e6fbd8c0549e13e3348049853#egg=sage-master
+-e git+git@github.com:midnightdev/SAGE.git@b82dc40b94a02bc7a43204f097476610f79d9361#egg=sage-master
 transaction==1.4.1
 translationstring==1.1
 venusian==1.0a8

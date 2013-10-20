@@ -42,7 +42,7 @@
             <div class="col-md-6">
               <input id="public_key" class="form-control" name="public_key" type="file" value="" />
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 submit-button">
               <button type="submit" class="btn btn-primary">Upload Key</button>
             </div>
           </div>
