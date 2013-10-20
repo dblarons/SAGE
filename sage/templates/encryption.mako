@@ -1,34 +1,76 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:tal="http://xml.zope.org/namespaces/tal">
-<head>
-  <title>Encryption Page</title>
-  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
-  <meta name="keywords" content="python web application" />
-  <meta name="description" content="pyramid web application" />
-  <link rel="shortcut icon" href="${request.static_url('sage:static/favicon.ico')}" />
-  <link rel="stylesheet" href="${request.static_url('sage:static/pylons.css')}" type="text/css" media="screen" charset="utf-8" />
-  <link rel="stylesheet" href="http://static.pylonsproject.org/fonts/nobile/stylesheet.css" media="screen" />
-  <link rel="stylesheet" href="http://static.pylonsproject.org/fonts/neuton/stylesheet.css" media="screen" />
-  <!--[if lte IE 6]>
-  <link rel="stylesheet" href="${request.static_url('sage:static/ie6.css')}" type="text/css" media="screen" charset="utf-8" />
-  <![endif]-->
-</head>
-<body>
-  <div id="wrap">
-    <form action="${request.route_url('upload_text_file')}" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+# -*- coding: utf-8 -*- 
+<%inherit file="layout.mako"/>
 
+<div class="col-md-4"> 
+  <h2 class="text-center">
+    Public key
+  </h2>
+  <div class="row">
+    <form role="form" action="${request.route_url('upload_text_file')}" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+      <div class="form-group">
         <label for="plain_text">Text File</label>
-        <input id="plain_text" name="plain_text" type="file" value="" />
-
-        <input type="submit" value="submit" />
-    </form>
-
-    <form method="get" action="${request.route_url('download_encrypted_file')}">
-      <button type="submit">Download!</button>
+        <input id="plain_text" class="form-control" name="plain_text" type="file" value="" />
+        <p class="help-block">Choose a file to encrypt</p>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
     </form>
   </div>
-  <div id="footer">
-    <div class="footer">&copy; Intelligence Iterated</div>
+</div>
+
+<div class="col-md-2"></div>
+
+<div class="col-md-6">
+  <h2 class="text-center">
+    Encrypt | <a href="${request.route_url('decryption', clear_queue=True)}">Decrypt</a>
+  </h2>
+  % if request.session.peek_flash():
+    <div class="flash">
+      <% flash = request.session.pop_flash() %>
+      % for message in flash:
+        ${message}<br>
+      % endfor
+    </div>
+  % endif
+
+  <div class="row">
+    % if uploaded_files:
+    <ul>
+      % for file in uploaded_files:
+      <h4><li> ${file} </li> </h4>
+      % endfor
+    </ul>
+    % else:
+    <h4> No uploaded files </h4>
+    % endif
   </div>
-</body>
-</html>
+
+  <div class="row">
+    <form role="form" action="${request.route_url('upload_text_file')}" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="plain_text">Text File</label>
+        <input id="plain_text" class="form-control" name="plain_text" type="file" value="" />
+        <p class="help-block">Choose a file to encrypt</p>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <form method="get" role="form" action="${request.route_url('remove_files_encryption_page')}">
+        <div class="form-group">
+          <button type="submit" class="btn btn-danger">Remove</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-md-6">
+      <form method="get" role="form" action="${request.route_url('download_files', is_encryption=True)}">
+        <div class="form-group">
+          <button type="submit" class="btn btn-success">Download!</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>

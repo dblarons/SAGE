@@ -1,0 +1,21 @@
+Chameleon==2.12
+Mako==0.9.0
+MarkupSafe==0.18
+PasteDeploy==1.5.0
+Pygments==1.6
+SQLAlchemy==0.8.2
+WebOb==1.2.3
+pyramid==1.4.5
+pyramid-debugtoolbar==1.0.8
+pyramid-mako==0.2
+pyramid-tm==0.7
+repoze.lru==0.6
+-e git+git@github.com:midnightdev/SAGE.git@aee677d1e0c92d9e6fbd8c0549e13e3348049853#egg=sage-master
+transaction==1.4.1
+translationstring==1.1
+venusian==1.0a8
+waitress==0.8.7
+wsgiref==0.1.2
+zope.deprecation==4.0.2
+zope.interface==4.0.5
+zope.sqlalchemy==0.7.3
