@@ -24,13 +24,17 @@ def main(global_config, **settings):
     config.add_route('home', '/')
     config.add_route('encryption', '/encryption/{clear_queue}')
     config.add_route('upload_text_file', '/upload_plain_text')
-    config.add_route('remove_files_encryption_page', '/delete')
+    config.add_route('remove_files', '/delete/{remove_encrypted}')
 
     config.add_route('download_files', '/download_files/{is_encryption}')
 
     config.add_route('decryption', '/decryption/{clear_queue}')
     config.add_route('upload_encrypted_file', '/upload_encrypted')
-    config.add_route('remove_files_decryption_page', '/delete_decryption')
-    config.add_route('download_text_file', '/dowload_plain_text')
+    config.add_route('download_text_file', '/download_plain_text')
+
+    config.add_route('upload_public_key', '/upload_public_key')
+    config.add_route('generate_keys', '/generate_keys')
+    config.add_route('key_management', '/key_management')
+    config.add_route('download_my_public_key', '/download_my_public_key')
     config.scan()
     return config.make_wsgi_app()
