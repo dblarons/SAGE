@@ -104,11 +104,9 @@ def download_files(request):
     if is_encryption == 'True':
         folder = 'encrypted_files/'
         package = 'encrypted_package.zip'
-        return_url = 'encryption'
     elif is_encryption == 'False':
         folder = 'decrypted_files/'
         package = 'decrypted_package.zip'
-        return_url = 'decryption'
 
     here = os.path.abspath(os.path.dirname(__file__))
 
@@ -116,7 +114,7 @@ def download_files(request):
 
     if not files_to_download:
         request.session.flash('No files have been uploaded')
-        return HTTPFound(location=request.route_url(return_url, clear_queue=False))
+        return HTTPFound(location=request.route_url('encryption', clear_queue=False))
 
     if len(files_to_download) == 1:
         response = download(os.path.join(here, folder, files_to_download[0]), files_to_download[0])

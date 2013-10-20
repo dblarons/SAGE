@@ -1,13 +1,51 @@
 body {
   font-family: 'Quicksand', sans-serif;
 }
-body h1,
-body h2 {
+h1,
+h2 {
   font-family: 'Quicksand';
   font-weight: 700;
 }
-body h3,
-body h4 {
+h3,
+h4 {
   font-family: 'Quicksand';
   font-weight: 400;
+}
+.jumbotron p {
+  font-size: 60%;
+}
+.key-management h3 {
+  font-weight: 700;
+}
+#public-key {
+  color: #5dc568;
+}
+#private-key {
+  color: #5dc568;
+}
+.submit-button .btn-primary {
+  margin-bottom: 14px;
+}
+.navbar {
+  border: none;
+  border-radius: 0;
+}
+.navbar-inverse {
+  background-color: #424242;
+  border-color: #080808;
+  background-image: none;
+}
+.navbar-inverse .navbar-brand {
+  color: #d7d7d7;
+}
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+  color: #ffffff;
+  background-color: transparent;
+}
+.navbar-inverse .navbar-text {
+  color: #d7d7d7;
+}
+.navbar-inverse .navbar-nav > li > a {
+  color: #d7d7d7;
 }

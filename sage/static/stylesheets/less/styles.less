@@ -1,16 +1,67 @@
+@green: #5DC568;
+@light-gray: #D7D7D7;
+
 body {
-
     font-family: 'Quicksand', sans-serif;
-
-    h1, h2 {
-        font-family: 'Quicksand';
-        font-weight: 700;
-    }
-
-    h3, h4 {
-        font-family: 'Quicksand';
-        font-weight: 400;
-    }
-
 }
 
+h1, h2 {
+    font-family: 'Quicksand';
+    font-weight: 700;
+}
+
+h3, h4 {
+    font-family: 'Quicksand';
+    font-weight: 400;
+}
+
+.jumbotron p {
+    font-size: 60%;
+}
+
+.key-management h3 {
+    font-weight: 700;
+}
+
+#public-key {
+    color: @green;
+}
+
+#private-key {
+    color: @green;
+}
+
+.submit-button .btn-primary {
+    margin-bottom: 14px;
+}
+
+// Navbar
+
+.navbar {
+    border: none;
+    border-radius: 0;
+}
+
+.navbar-inverse {
+  background-color: #424242;
+  border-color: #080808;
+  background-image: none;
+}
+
+.navbar-inverse .navbar-brand {
+  color: @light-gray;
+}
+
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+  color: #ffffff;
+  background-color: transparent;
+}
+
+.navbar-inverse .navbar-text {
+  color: @light-gray;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: @light-gray;
+}
