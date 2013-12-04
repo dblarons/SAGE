@@ -5,12 +5,12 @@ PasteDeploy==1.5.0
 Pygments==1.6
 SQLAlchemy==0.8.2
 WebOb==1.2.3
+numpy==1.8.0
 pyramid==1.4.5
 pyramid-debugtoolbar==1.0.8
 pyramid-mako==0.2
 pyramid-tm==0.7
 repoze.lru==0.6
--e git+git@github.com:midnightdev/SAGE.git@b82dc40b94a02bc7a43204f097476610f79d9361#egg=sage-master
 transaction==1.4.1
 translationstring==1.1
 venusian==1.0a8

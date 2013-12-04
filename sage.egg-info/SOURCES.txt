@@ -3,6 +3,7 @@ MANIFEST.in
 README.txt
 development.ini
 production.ini
+requirements.txt
 setup.cfg
 setup.py
 sage/__init__.py
@@ -16,15 +17,27 @@ sage.egg-info/entry_points.txt
 sage.egg-info/not-zip-safe
 sage.egg-info/requires.txt
 sage.egg-info/top_level.txt
+sage/my_keys/private_keys/private_key.txt
+sage/my_keys/public_keys/public_key.txt
 sage/scripts/__init__.py
+sage/scripts/encryption_algorithm.py
 sage/scripts/initializedb.py
 sage/static/favicon.ico
-sage/static/footerbg.png
-sage/static/headerbg.png
-sage/static/ie6.css
-sage/static/middlebg.png
-sage/static/pylons.css
-sage/static/pyramid-small.png
-sage/static/pyramid.png
-sage/static/transparent.gif
-sage/templates/mytemplate.pt
+sage/static/stylesheets/css/main.css
+sage/static/vendor/less-1.4.2.min.js
+sage/static/vendor/Quicksand/OFL.txt
+sage/static/vendor/bootstrap-3.0.0/css/bootstrap-theme.css
+sage/static/vendor/bootstrap-3.0.0/css/bootstrap-theme.min.css
+sage/static/vendor/bootstrap-3.0.0/css/bootstrap.css
+sage/static/vendor/bootstrap-3.0.0/css/bootstrap.min.css
+sage/static/vendor/bootstrap-3.0.0/js/bootstrap.js
+sage/static/vendor/bootstrap-3.0.0/js/bootstrap.min.js
+sage/templates/encryption.mako
+sage/templates/home.mako
+sage/templates/key_management.mako
+sage/templates/layout.mako
+sage/tmp/decrypted_message.txt
+sage/tmp/encrypted_message.txt
+sage/tmp/test (2).txt
+sage/tmp/test (3).txt
+sage/tmp/test.txt

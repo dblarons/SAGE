@@ -14,7 +14,24 @@ from .models import (
 
 @view_config(route_name='home', renderer='home.mako')
 def home(request):
-    return {'status': 'okay'}
+    here = os.path.abspath(os.path.dirname(__file__))
+    public_keys = os.listdir(os.path.join(here, 'public_keys'))
+    if not public_keys:
+        keys = {'public_key': 'No keys'}
+    elif len(public_keys) == 1:
+        keys = {'public_key': public_keys[0]}
+    else:
+        keys = {'public_key': 'Too many keys!'}
+
+    private_keys = os.listdir(os.path.join(here, 'my_keys/private_keys'))
+    if not private_keys:
+        keys['private_key'] = 'No keys'
+    elif len(private_keys) == 1:
+        keys['private_key'] = private_keys[0]
+    else:
+        keys['private_key'] = 'Too many keys!'
+
+    return keys
 
 ####################
 # Encryption Views #
@@ -22,11 +39,18 @@ def home(request):
 
 @view_config(route_name='encryption', renderer='encryption.mako')
 def encryption_view(request):
+    here = os.path.abspath(os.path.dirname(__file__))
+
     if not request.session.get('encrypted_files'):
         request.session['encrypted_files'] = []
         
     if not request.session.get('decrypted_files'):
         request.session['decrypted_files'] = []
+
+    if request.matchdict.get('clear_queue') is True:
+        request.session['encrypted_files'] = []
+        request.session['decrypted_files'] = []
+        clear_all_files(request, here)
 
     return {'decrypted_files': request.session['decrypted_files'],
             'encrypted_files': request.session['encrypted_files']}
@@ -133,6 +157,18 @@ def decrypt_uploaded_file(here, plain_file):
 ####################
 # Decryption Views #
 ####################
+
+
+@view_config(route_name='decryption', renderer='decryption.mako')
+def decryption_view(request):
+    if request.matchdict.get('clear_queue') == 'True':
+        here = os.path.abspath(os.path.dirname(__file__))
+        clear_all_files(request, here)
+        request.session['decrypted_files'] = []
+    if not request.session.get('decrypted_files'):
+        request.session['decrypted_files'] = []
+
+    return {'decrypted_files': request.session['decrypted_files']}
 
 
 @view_config(route_name='upload_encrypted_file')
@@ -287,9 +323,7 @@ def key_management(request):
     if not public_keys:
         keys = {'public_key': 'No keys'}
     elif len(public_keys) == 1:
-        with open(os.path.join(os.path.join(here, 'my_keys/public_keys'), public_keys[0])) as f:
-            key_contents = f.read()
-        keys = {'public_key': key_contents}
+        keys = {'public_key': public_keys[0]}
     else:
         keys = {'public_key': 'Too many keys!'}
 
